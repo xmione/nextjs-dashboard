@@ -20,10 +20,9 @@
             "request": "launch",
             "url": "http://localhost:3000",
             "webRoot": "${workspaceFolder}",
-            "preLaunchTask": "Run pnpm dev",
+            "preLaunchTask": "Run pnpm dev", // Server starts before Edge
             "timeout": 30000
         }
     ],
     "compounds": []
-  }
-  
+}
