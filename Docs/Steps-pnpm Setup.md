@@ -1,3 +1,6 @@
+# Setup pnpm in Windows
+# Setup pnpm in Linux
+
 # Setup pnpm Global folder in Windows
 1. Setting Up Global Bin Directory:
 To set up the global bin directory for pnpm, try running these commands in your PowerShell:
@@ -61,3 +64,71 @@ pnpm setup
 
 These steps will set up pnpm for global use in your Linux environment, allowing you to install and manage global packages seamlessly.
 Happy coding! 🐧✨
+
+# Trouble-Shooting
+
+## Check if chcp.com exists in C:\Windows\System32 and path is in environment variable
+
+### 1. Check if chcp.com exists in C:\Windows\System32
+
+```
+ls C:\Windows\System32\chcp.com
+```
+
+### 1.1. If it exists, check current session Process-Level Path environment if it has C:\Windows\System32
+
+```
+$processPath = $env:Path -split ';' | ForEach-Object { $_.Trim() } | Where-Object { $_ -eq 'C:\Windows\System32' }
+$processPath
+```
+
+### 1.1.1. If path C:\Windows\System32 is not found, check first if it exists in the User-Level variable
+
+```
+$userPath = [System.Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::User)
+```
+
+### 1.1.1.1 If it does not exist, add it to the User and Process level environment variable Path
+
+```
+[System.Environment]::SetEnvironmentVariable("Path", "$userPath;C:\Windows\System32", [System.EnvironmentVariableTarget]::User)
+
+$env:Path = $userPath
+```
+
+### 1.1.1.2 If it exists in the User level variable, just add it to the Process level environment variable Path
+
+```
+$env:Path = $userPath
+```
+Note: If you open a new terminal in VS you got to repeat from 1.1.1. again but if you open a new VS Code IDE, you wouldn't have to.
+
+### 1.2. If chcp.com does not exists, reinstall it
+### 1.2.1. Repair Windows Image using DISM
+
+```
+DISM /Online /Cleanup-Image /RestoreHealth
+```
+
+![alt text](image-10.png)
+
+### 1.2.2. Restart the computer and check again
+### 1.3. Manually Restore chcp.com (if still missing)
+### 1.3.1. Copy chcp.com from another working Windows machine:
+
+```
+Copy-Item -Path "C:\Windows\System32\chcp.com" -Destination "C:\Windows\System32\chcp.com"
+
+```
+![alt text](image-11.png)
+
+### 1.3.2. Verify it is now accessible
+
+```
+ls C:\Windows\System32\chcp.com
+```
+
+![alt text](image-12.png)
+
+
+This should ensure you’ve got everything detailed and clear for troubleshooting! 🎀✨
