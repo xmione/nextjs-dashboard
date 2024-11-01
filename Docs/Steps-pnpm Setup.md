@@ -30,7 +30,7 @@ $machinePath = "C:\Windows\System32;C:\Windows\System32\WindowsPowerShell\v1.0"
 ## Setting User-Level
 
 ```powershell
-$userPath = "C:\ProgramData\chocolatey\bin;C:\Program Files\OpenSSL-Win64\bin;C:\ProgramData\mingw64\mingw64\bin;C:\Users\User\AppData\Local\Microsoft\WindowsApps;C:\Users\User\.dotnet\tools;C:\Users\User\AppData\Local\GitHubDesktop\bin;C:\Users\User\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\User\AppData\Roaming\npm;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Users\User\.pnpm-global"
+$userPath = "C:\Users\User\AppData\Local\pnpm;C:\ProgramData\chocolatey\bin;C:\Program Files\OpenSSL-Win64\bin;C:\ProgramData\mingw64\mingw64\bin;C:\Users\User\AppData\Local\Microsoft\WindowsApps;C:\Users\User\.dotnet\tools;C:\Users\User\AppData\Local\GitHubDesktop\bin;C:\Users\User\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\User\AppData\Roaming\npm;C:\Program Files\nodejs;C:\Program Files\Git\cmd"
 
 [System.Environment]::SetEnvironmentVariable("Path", $userPath, [System.EnvironmentVariableTarget]::User)
 ```
@@ -49,25 +49,61 @@ Restart-Computer -Force
 ```powershell
 $machinePath = [System.Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::Machine)
 $userPath = [System.Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::User)
-$env:Path = "$machinePath;$userPath"
 
+# Split the paths into arrays
+$machinePathArray = $machinePath -split ';'
+$userPathArray = $userPath -split ';'
+
+# Combine them and remove duplicates by selecting unique paths
+$combinedPaths = ($machinePathArray + $userPathArray | Select-Object -Unique) -join ';'
+$combinedPaths
+$env:Path = $combinedPaths
 ```
-
+## Setup the Global bin directory
 To set up the global bin directory for pnpm, try running these commands in your PowerShell:
 
+### 1. Set the default Global Bin Folder
 ```powershell
-$pnpmGlobalHomePath = [System.IO.Path]::Combine($env:USERPROFILE, '.pnpm-global')
+$pnpmGlobalHomePath = [System.IO.Path]::Combine($env:USERPROFILE, 'AppData\Local\pnpm')
+```
+
+### 2. Check if path exists in the directory
+```powershell
+Test-Path -Path $pnpmGlobalHomePath
+```
+
+### 3. Create Path if it does not exist
+```powershell
 New-Item -ItemType Directory -Path $pnpmGlobalHomePath
+```
+
+### 4. Add to User-Level Path if it does not exist
+#### 4.1. Check User Path
+```powershell
 $userPath = [System.Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::User)
+$existInUserPath = suserPath -split ";" -contains $pnpmGlobalHomePath
+$existInUserPath
+```
+#### 4.2. Add if it does not exist
+```powershell
 [System.Environment]::SetEnvironmentVariable("Path", "$userPath;$pnpmGlobalHomePath", [System.EnvironmentVariableTarget]::User)
+```
+
+### 5. Set the Global folder
+```powershell
 pnpm config set global-bin-dir $pnpmGlobalHomePath
 ```
 
-1. Adding Global Bin Directory to PATH:
+### 6. Add the Global Bin Directory to PNPM_HOME variable:
+#### 6.1. Check first if it exist
 
 ```powershell
+[System.Environment]::GetEnvironmentVariable("PNPM_HOME", [System.EnvironmentVariableTarget]::User)
+```
+
+#### 6.2. Set PNPM_HOME value
+```powershell
 [System.Environment]::SetEnvironmentVariable("PNPM_HOME", $pnpmGlobalHomePath, [System.EnvironmentVariableTarget]::User)
-$userPath = [System.Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::User)
 ```
 4. Restart PowerShell: Close and reopen PowerShell to apply the changes.
 
@@ -78,7 +114,10 @@ Restart-Computer -Force
 If you don't want to restart the computer and want it to take effect immediately, run this command:
 
 ```powershell
+$userPath = [System.Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::User)
+$pnpmGlobalHomePath = [System.Environment]::GetEnvironmentVariable("PNPM_HOME", [System.EnvironmentVariableTarget]::User)
 $env:Path = $userPath
+$env:PHPM_HOME = $pnpmGlobalHomePath
 ```
 
 5. Run Pnpm Setup:
@@ -156,6 +195,11 @@ $env:Path = $userPath
 $env:Path = $userPath
 ```
 Note: If you open a new terminal in VS you got to repeat from 1.1.1. again but if you open a new VS Code IDE, you wouldn't have to.
+
+### 1.1.2 If `C:\Windows\System32` is missing in the User-Level Path, add it
+```powershell
+[System.Environment]::SetEnvironmentVariable("Path", "$userPath;C:\Windows\System32", [System.EnvironmentVariableTarget]::User)
+$env:Path = "$env:Path;C:\Windows\System32"  # Add to current session Path
 
 ### 1.2. If chcp.com does not exists, reinstall it
 ### 1.2.1. Repair Windows Image using DISM
