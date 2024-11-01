@@ -1,7 +1,8 @@
 import '@/app/ui/global.css';
 import { inter } from '@/app/ui/fonts';
 import type { Metadata } from 'next';
- 
+import Head from 'next/head'; // Import Head from next/head
+
 export const metadata: Metadata = {
   title: {
     template: '%s | Acme Dashboard',
@@ -18,6 +19,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Head>
+        {/* Conditionally include the script for development */}
+        {process.env.NODE_ENV === 'development' && (
+          <script src="http://localhost:8097" />
+        )}
+      </Head>
       <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   );
