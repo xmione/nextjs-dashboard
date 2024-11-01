@@ -4,23 +4,82 @@
 ```powershell
 yarn global add pnpm
 ```
-
 2. Setting Up Global Bin Directory:
+
+You can check Machine-Level and User-Level Path environment variables by running these commands in PowerShell:
+
+## Getting Machine-Level Path Environment Variable
+```powershell
+$machinePath = [System.Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::Machine)
+$machinePath
+```
+
+## Getting User-Level Path Environment Variable
+```powershell
+$userPath = [System.Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::User)
+$userPath
+```
+## Setting Machine-Level
+
+```powershell
+$machinePath = "C:\Windows\System32;C:\Windows\System32\WindowsPowerShell\v1.0"
+
+[System.Environment]::SetEnvironmentVariable("Path", $machinePath, [System.EnvironmentVariableTarget]::Machine)
+
+```
+## Setting User-Level
+
+```powershell
+$userPath = "C:\ProgramData\chocolatey\bin;C:\Program Files\OpenSSL-Win64\bin;C:\ProgramData\mingw64\mingw64\bin;C:\Users\User\AppData\Local\Microsoft\WindowsApps;C:\Users\User\.dotnet\tools;C:\Users\User\AppData\Local\GitHubDesktop\bin;C:\Users\User\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\User\AppData\Roaming\npm;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Users\User\.pnpm-global"
+
+[System.Environment]::SetEnvironmentVariable("Path", $userPath, [System.EnvironmentVariableTarget]::User)
+```
+
+## Setting Current Session/Process-Level
+You can set the current session/process-level path variable in two (2) ways:
+
+### 1. Restarting the Computer
+
+```powershell
+Restart-Computer -Force
+```
+
+### 2. Getting the Machine-Level and User-Level path variables, combining them and then saving them to the $env:Path variable
+
+```powershell
+$machinePath = [System.Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::Machine)
+$userPath = [System.Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::User)
+$env:Path = "$machinePath;$userPath"
+
+```
+
 To set up the global bin directory for pnpm, try running these commands in your PowerShell:
 
 ```powershell
-$pnpmHome = [System.IO.Path]::Combine($env:USERPROFILE, '.pnpm-global')
-pnpm config set global-bin-dir $pnpmHome
+$pnpmGlobalHomePath = [System.IO.Path]::Combine($env:USERPROFILE, '.pnpm-global')
+New-Item -ItemType Directory -Path $pnpmGlobalHomePath
+$userPath = [System.Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::User)
+[System.Environment]::SetEnvironmentVariable("Path", "$userPath;$pnpmGlobalHomePath", [System.EnvironmentVariableTarget]::User)
+pnpm config set global-bin-dir $pnpmGlobalHomePath
 ```
 
-3. Adding Global Bin Directory to PATH:
+1. Adding Global Bin Directory to PATH:
 
 ```powershell
-[System.Environment]::SetEnvironmentVariable("PNPM_HOME", $pnpmHome, [System.EnvironmentVariableTarget]::User)
-$path = [System.Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::User)
-[System.Environment]::SetEnvironmentVariable("Path", "$path;$pnpmHome", [System.EnvironmentVariableTarget]::User)
+[System.Environment]::SetEnvironmentVariable("PNPM_HOME", $pnpmGlobalHomePath, [System.EnvironmentVariableTarget]::User)
+$userPath = [System.Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::User)
 ```
 4. Restart PowerShell: Close and reopen PowerShell to apply the changes.
+
+```powershell
+Restart-Computer -Force
+```
+
+If you don't want to restart the computer and want it to take effect immediately, run this command:
+
+```powershell
+$env:Path = $userPath
+```
 
 5. Run Pnpm Setup:
 Now, you should be able to run pnpm setup without issues:
@@ -80,6 +139,7 @@ $processPath
 
 ```powershell
 $userPath = [System.Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::User)
+$userPath
 ```
 
 ### 1.1.1.1 If it does not exist, add it to the User and Process level environment variable Path
