@@ -24,4 +24,7 @@ For more information, see the [course curriculum](https://nextjs.org/learn) on t
 
 [Chapter 6 - Setting Up Your Database](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Learn%20Next.js%20Setting%20Up%20Your%20Database%20%20Next.js.md)
 
+[Chapter 7 - Fetching Data](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Learn%20Next.js%20Fetching%20Data%20%20Next.js.md)
+
+
 
