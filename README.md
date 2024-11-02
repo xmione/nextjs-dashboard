@@ -36,7 +36,7 @@ For more information, see the [course curriculum](https://nextjs.org/learn) on t
 
 [Chapter 12 - Mutating Data](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Learn%20Next.js%20Mutating%20Data%20%20Next.js.md)
 
-[Chapter 13 - replace](replace)
+[Chapter 13 - Handling Errors](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Learn%20Next.js%20Handling%20Errors%20%20Next.js.md)
 
 [Chapter 14 - replace](replace)
 
