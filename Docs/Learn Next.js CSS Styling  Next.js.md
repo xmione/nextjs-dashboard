@@ -1,16 +1,3 @@
----
-created: 2024-11-01T22:53:34 (UTC -07:00)
-tags: []
-source: https://nextjs.org/learn/dashboard-app/css-styling
-author: 
----
-
-# Learn Next.js: CSS Styling | Next.js
-
-> ## Excerpt
-> Style your Next.js application with Tailwind and CSS modules.
-
----
 Currently, your home page doesn't have any styles. Let's look at the different ways you can style your Next.js application.
 
 In this chapter...
@@ -49,7 +36,7 @@ Add global styles to your application by navigating to `/app/layout.tsx` and imp
 
 With the development server still running, save your changes and preview them in the browser. Your home page should now look like this:
 
-![Styled page with the logo 'Acme', a description, and login link.](Learn%20Next.js%20CSS%20Styling%20%20Next.js/image.png)
+![Styled page with the logo 'Acme', a description, and login link.](https://nextjs.org/_next/image?url=%2Flearn%2Fdark%2Fhome-page-with-tailwind.png&w=1920&q=75&dpl=dpl_BpKziPZ8D8KdgtcNYEQc9tyDG4N7)
 
 But wait a second, you didn't add any CSS rules, where did the styles come from?
 

@@ -16,7 +16,7 @@ Understand what colocation, partial rendering, and the root layout are.
 
 Next.js uses file-system routing where **folders** are used to create nested routes. Each folder represents a **route segment** that maps to a **URL segment**.
 
-![Diagram showing how folders map to URL segments](Learn%20Next.js%20Creating%20Layouts%20and%20Pages%20%20Next.js/image.png)
+![Diagram showing how folders map to URL segments](https://nextjs.org/_next/image?url=%2Flearn%2Fdark%2Ffolders-to-url-segments.png&w=3840&q=75&dpl=dpl_BpKziPZ8D8KdgtcNYEQc9tyDG4N7)
 
 You can create separate UIs for each route using `layout.tsx` and `page.tsx` files.
 
@@ -24,7 +24,7 @@ You can create separate UIs for each route using `layout.tsx` and `page.tsx` fil
 
 To create a nested route, you can nest folders inside each other and add `page.tsx` files inside them. For example:
 
-![Diagram showing how adding a folder called dashboard creates a new route '/dashboard'](Learn%20Next.js%20Creating%20Layouts%20and%20Pages%20%20Next.js/image.1.png)
+![Diagram showing how adding a folder called dashboard creates a new route '/dashboard'](https://nextjs.org/_next/image?url=%2Flearn%2Fdark%2Fdashboard-route.png&w=3840&q=75&dpl=dpl_BpKziPZ8D8KdgtcNYEQc9tyDG4N7)
 
 `/app/dashboard/page.tsx` is associated with the `/dashboard` path. Let's create the page to see how it works!
 
@@ -80,15 +80,15 @@ First, you're importing the `<SideNav />` component into your layout. Any compon
 
 The `<Layout />` component receives a `children` prop. This child can either be a page or another layout. In your case, the pages inside `/dashboard` will automatically be nested inside a `<Layout />` like so:
 
-![Folder structure with dashboard layout nesting the dashboard pages as children](Learn%20Next.js%20Creating%20Layouts%20and%20Pages%20%20Next.js/image.2.png)
+![Folder structure with dashboard layout nesting the dashboard pages as children](https://nextjs.org/_next/image?url=%2Flearn%2Fdark%2Fshared-layout.png&w=3840&q=75&dpl=dpl_BpKziPZ8D8KdgtcNYEQc9tyDG4N7)
 
 Check that everything is working correctly by saving your changes and checking your localhost. You should see the following:
 
-![Dashboard page with a sidenav and a main content area](Learn%20Next.js%20Creating%20Layouts%20and%20Pages%20%20Next.js/image.3.png)
+![Dashboard page with a sidenav and a main content area](https://nextjs.org/_next/image?url=%2Flearn%2Fdark%2Fshared-layout-page.png&w=1920&q=75&dpl=dpl_BpKziPZ8D8KdgtcNYEQc9tyDG4N7)
 
 One benefit of using layouts in Next.js is that on navigation, only the page components update while the layout won't re-render. This is called [partial rendering](https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#4-partial-rendering):
 
-![Folder structure showing the dashboard layout nesting the dashboard pages, but only the pages UI swap on navigation](Learn%20Next.js%20Creating%20Layouts%20and%20Pages%20%20Next.js/image.4.png)
+![Folder structure showing the dashboard layout nesting the dashboard pages, but only the pages UI swap on navigation](https://nextjs.org/_next/image?url=%2Flearn%2Fdark%2Fpartial-rendering-dashboard.png&w=3840&q=75&dpl=dpl_BpKziPZ8D8KdgtcNYEQc9tyDG4N7)
 
 ## [Root layout](https://nextjs.org/learn/dashboard-app/creating-layouts-and-pages#root-layout)
 

@@ -1,16 +1,3 @@
----
-created: 2024-11-01T23:05:35 (UTC -07:00)
-tags: []
-source: https://nextjs.org/learn/dashboard-app/optimizing-fonts-images
-author: 
----
-
-# Learn Next.js: Optimizing Fonts and Images | Next.js
-
-> ## Excerpt
-> Optimize fonts and images with the Next.js built-in components.
-
----
 In the previous chapter, you learned how to style your Next.js application. Let's continue working on your home page by adding a custom font and a hero image.
 
 In this chapter...
@@ -29,7 +16,7 @@ Fonts play a significant role in the design of a website, but using custom fonts
 
 [Cumulative Layout Shift](https://vercel.com/blog/how-core-web-vitals-affect-seo) is a metric used by Google to evaluate the performance and user experience of a website. With fonts, layout shift happens when the browser initially renders text in a fallback or system font and then swaps it out for a custom font once it has loaded. This swap can cause the text size, spacing, or layout to change, shifting elements around it.
 
-![Mock UI showing initial load of a page, followed by a layout shift as the custom font loads.](Learn%20Next.js%20Optimizing%20Fonts%20and%20Images%20%20Next.js/image.png)
+![Mock UI showing initial load of a page, followed by a layout shift as the custom font loads.](https://nextjs.org/_next/image?url=%2Flearn%2Fdark%2Ffont-layout-shift.png&w=3840&q=75&dpl=dpl_BpKziPZ8D8KdgtcNYEQc9tyDG4N7)
 
 Next.js automatically optimizes fonts in the application when you use the `next/font` module. It downloads font files at build time and hosts them with your other static assets. This means when a user visits your application, there are no additional network requests for fonts which would impact performance.
 
@@ -177,7 +164,7 @@ You'll also notice the class `hidden` to remove the image from the DOM on mobile
 
 This is what your home page should look like now:
 
-![Styled home page with a custom font and hero image](Learn%20Next.js%20Optimizing%20Fonts%20and%20Images%20%20Next.js/image.1.png)
+![Styled home page with a custom font and hero image](https://nextjs.org/_next/image?url=%2Flearn%2Fdark%2Fhome-page-with-hero.png&w=1920&q=75&dpl=dpl_BpKziPZ8D8KdgtcNYEQc9tyDG4N7)
 
 ## [Practice: Adding the mobile hero image](https://nextjs.org/learn/dashboard-app/optimizing-fonts-images#practice-adding-the-mobile-hero-image)
 

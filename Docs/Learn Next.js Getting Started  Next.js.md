@@ -1,27 +1,11 @@
----
-created: 2024-11-01T21:47:44 (UTC -07:00)
-tags: []
-source: https://nextjs.org/learn/dashboard-app/getting-started
-author: 
----
-
-# Getting Started
-
-> ## Excerpt
-> Create a new Next.js application using the dashboard starter example and explore the project.
-
----
 ## [Creating a new project](https://nextjs.org/learn/dashboard-app/getting-started#creating-a-new-project)
 
 We recommend using [`pnpm`](https://pnpm.io/) as your package manager, as it's faster and more efficient than `npm` or `yarn`. If you don't have `pnpm` installed, you can install it globally by running:
 
-```terminal
-npm install -g pnpm
-```
 To create a Next.js app, open your terminal, [`cd`](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line#basic_built-in_terminal_commands) into the folder you'd like to keep your project, and run the following command:
 
-```powershell
-npx create-next-app@latest nextjs-dashboard --example "https://github.com/vercel/next-learn/tree/main/dashboard/starter-example" --use-pnpm
+```
+<span><span>npx </span><span>create-next-app@latest</span><span> </span><span>nextjs-dashboard</span><span> </span><span>--example</span><span> </span><span>"https://github.com/vercel/next-learn/tree/main/dashboard/starter-example"</span><span> </span><span>--use-pnpm</span></span>
 ```
 
 This command uses [`create-next-app`](https://nextjs.org/docs/app/api-reference/create-next-app), a Command Line Interface (CLI) tool that sets up a Next.js application for you. In the command above, you're also using the `--example` flag with the [starter example](https://github.com/vercel/next-learn/tree/main/dashboard/starter-example) for this course.
@@ -40,7 +24,7 @@ Let's spend some time exploring the project.
 
 You'll notice that the project has the following folder structure:
 
-![Folder structure of the dashboard project, showing the main folders and files: app, public, and config files.](https://nextjs.org/_next/image?url=%2Flearn%2Fdark%2Flearn-folder-structure.png&w=3840&q=75&dpl=dpl_E13tX6WNCRaPEs8WyfUA4NsohAKy)
+![Folder structure of the dashboard project, showing the main folders and files: app, public, and config files.](https://nextjs.org/_next/image?url=%2Flearn%2Fdark%2Flearn-folder-structure.png&w=3840&q=75&dpl=dpl_5DU7MtoYzzYKJbui3G5kbf54JXGA)
 
 -   **`/app`**: Contains all the routes, components, and logic for your application, this is where you'll be mostly working from.
 -   **`/app/lib`**: Contains functions used in your application, such as reusable utility functions and data fetching functions.
@@ -116,4 +100,4 @@ Followed by `pnpm dev` to start the development server.
 
 Open [http://localhost:3000](http://localhost:3000/) on your browser. Your home page should look like this, which is intentionally unstyled:
 
-![Unstyled page with the title 'Acme', a description, and login link.](https://nextjs.org/_next/image?url=%2Flearn%2Fdark%2Facme-unstyled.png&w=3840&q=75&dpl=dpl_E13tX6WNCRaPEs8WyfUA4NsohAKy)
+![Unstyled page with the title 'Acme', a description, and login link.](https://nextjs.org/_next/image?url=%2Flearn%2Fdark%2Facme-unstyled.png&w=3840&q=75&dpl=dpl_5DU7MtoYzzYKJbui3G5kbf54JXGA)
