@@ -5,7 +5,7 @@ source: https://nextjs.org/learn/dashboard-app/getting-started
 author: 
 ---
 
-# Learn Next.js: Getting Started | Next.js
+# Getting Started
 
 > ## Excerpt
 > Create a new Next.js application using the dashboard starter example and explore the project.
@@ -15,10 +15,13 @@ author:
 
 We recommend using [`pnpm`](https://pnpm.io/) as your package manager, as it's faster and more efficient than `npm` or `yarn`. If you don't have `pnpm` installed, you can install it globally by running:
 
+```terminal
+npm install -g pnpm
+```
 To create a Next.js app, open your terminal, [`cd`](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line#basic_built-in_terminal_commands) into the folder you'd like to keep your project, and run the following command:
 
-```
-<span><span>npx </span><span>create-next-app@latest</span><span> </span><span>nextjs-dashboard</span><span> </span><span>--example</span><span> </span><span>"https://github.com/vercel/next-learn/tree/main/dashboard/starter-example"</span><span> </span><span>--use-pnpm</span></span>
+```powershell
+npx create-next-app@latest nextjs-dashboard --example "https://github.com/vercel/next-learn/tree/main/dashboard/starter-example" --use-pnpm
 ```
 
 This command uses [`create-next-app`](https://nextjs.org/docs/app/api-reference/create-next-app), a Command Line Interface (CLI) tool that sets up a Next.js application for you. In the command above, you're also using the `--example` flag with the [starter example](https://github.com/vercel/next-learn/tree/main/dashboard/starter-example) for this course.
