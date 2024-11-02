@@ -5,6 +5,8 @@ This is the source code for the Next.js Introductory Course. It contains the 16 
 For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
 
 ## More Documentation Links
+[Development Environment Setup Guide](Docs/Steps%20-%20Development%20Environment%20Setup.md)
+
 [General Setup Guide](Docs/Steps-pnpm%20Setup.md)
 
 [React Dev Tools Setup Guide](Docs/Steps-react-devtools%20Setup.md)
