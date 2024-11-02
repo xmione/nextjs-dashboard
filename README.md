@@ -42,7 +42,7 @@ For more information, see the [course curriculum](https://nextjs.org/learn) on t
 
 [Chapter 15 - Adding Authentication](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Learn%20Next.js%20Adding%20Authentication%20%20Next.js.md)
 
-[Chapter 16 - replace](replace)
+[Chapter 16 - Adding Metadata](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Learn%20Next.js%20Adding%20Metadata%20%20Next.js.md)
 
 
 
