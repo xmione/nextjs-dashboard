@@ -1,4 +1,4 @@
-# Setup pnpm Global folder in Windows
+# Setup react-devtools Global folder in Windows
 ## 1. Install pnpm package:
 
 ```powershell
