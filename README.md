@@ -7,7 +7,7 @@ For more information, see the [course curriculum](https://nextjs.org/learn) on t
 ## More Documentation Links
 [Development Environment Setup Guide](Docs/Steps%20-%20Development%20Environment%20Setup.md)
 
-[General Setup Guide](Docs/Steps-pnpm%20Setup.md)
+[pnpm Setup Guide](Docs/Steps-pnpm%20Setup.md)
 
 [React Dev Tools Setup Guide](Docs/Steps-react-devtools%20Setup.md)
 
