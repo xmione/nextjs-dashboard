@@ -5,5 +5,6 @@ This is the starter template for the Next.js App Router Course. It contains the 
 For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
 
 ## More Documentation Links
-[General Setup Guide](Docs/Steps-pnpm Setup.md)
-[React Dev Tools Setup Guide](Docs/Steps-react-devtools Setup.md)
+[General Setup Guide](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Steps-pnpm%20Setup.md)
+
+[React Dev Tools Setup Guide](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Steps-react-devtools%20Setup.md)
