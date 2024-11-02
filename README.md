@@ -26,5 +26,7 @@ For more information, see the [course curriculum](https://nextjs.org/learn) on t
 
 [Chapter 7 - Fetching Data](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Learn%20Next.js%20Fetching%20Data%20%20Next.js.md)
 
+[Chapter 8 - Static and Dynamic Rendering](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Learn%20Next.js%20Static%20and%20Dynamic%20Rendering%20%20Next.js.md)
+
 
 
