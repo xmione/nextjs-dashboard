@@ -40,7 +40,7 @@ For more information, see the [course curriculum](https://nextjs.org/learn) on t
 
 [Chapter 14 - Improving Accessibility](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Learn%20Next.js%20Improving%20Accessibility%20%20Next.js.md)
 
-[Chapter 15 - replace](replace)
+[Chapter 15 - Adding Authentication](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Learn%20Next.js%20Adding%20Authentication%20%20Next.js.md)
 
 [Chapter 16 - replace](replace)
 
