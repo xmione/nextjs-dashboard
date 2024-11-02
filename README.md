@@ -28,7 +28,7 @@ For more information, see the [course curriculum](https://nextjs.org/learn) on t
 
 [Chapter 8 - Static and Dynamic Rendering](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Learn%20Next.js%20Static%20and%20Dynamic%20Rendering%20%20Next.js.md)
 
-[Chapter 9 - Streaming]([replace](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Learn%20Next.js%20Streaming%20%20Next.js.md))
+[Chapter 9 - Streaming](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Learn%20Next.js%20Streaming%20%20Next.js.md)
 
 [Chapter 10 - Partial Prerendering](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Learn%20Next.js%20Partial%20Prerendering%20%20Next.js.md)
 
