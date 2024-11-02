@@ -32,7 +32,7 @@ For more information, see the [course curriculum](https://nextjs.org/learn) on t
 
 [Chapter 10 - Partial Prerendering](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Learn%20Next.js%20Partial%20Prerendering%20%20Next.js.md)
 
-[Chapter 11 - replace](replace)
+[Chapter 11 - Adding Search and Pagination](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Learn%20Next.js%20Adding%20Search%20and%20Pagination%20%20Next.js.md)
 
 [Chapter 12 - replace](replace)
 
