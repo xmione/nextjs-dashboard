@@ -9,5 +9,6 @@ For more information, see the [course curriculum](https://nextjs.org/learn) on t
 
 [React Dev Tools Setup Guide](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Steps-react-devtools%20Setup.md)
 
+## Course Links
 [Chapter 1](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Learn%20Next.js%20Getting%20Started%20%20Next.js.md)
 
