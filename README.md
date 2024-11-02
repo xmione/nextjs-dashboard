@@ -38,7 +38,7 @@ For more information, see the [course curriculum](https://nextjs.org/learn) on t
 
 [Chapter 13 - Handling Errors](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Learn%20Next.js%20Handling%20Errors%20%20Next.js.md)
 
-[Chapter 14 - replace](replace)
+[Chapter 14 - Improving Accessibility](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Learn%20Next.js%20Improving%20Accessibility%20%20Next.js.md)
 
 [Chapter 15 - replace](replace)
 
