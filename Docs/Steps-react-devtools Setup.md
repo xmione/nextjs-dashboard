@@ -60,7 +60,7 @@ $combinedPaths
 $env:Path = $combinedPaths
 ```
 
-## 3. Open the developer tools from the terminal
+## 4. Open the developer tools from the terminal
 
 ```powershell
 react-devtools
