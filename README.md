@@ -44,5 +44,9 @@ For more information, see the [course curriculum](https://nextjs.org/learn) on t
 
 [Chapter 16 - Adding Metadata](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Learn%20Next.js%20Adding%20Metadata%20%20Next.js.md)
 
+[Next Steps](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Learn%20Next.js%20Next%20Steps%20%20Next.js.md)
+
+
+
 
 
