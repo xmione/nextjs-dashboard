@@ -20,7 +20,7 @@ $globalBinPath
 ```
 
 ### 2.1. If you encounter the local/bin error, set the path manually
-![image](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/images/error.png)
+![image](images/error.png)
 
 ```powershell
 # Set the path manually
