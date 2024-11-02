@@ -6,7 +6,10 @@ const nextConfig: NextConfig = {
   experimental: {
     ppr: 'incremental',
     serverActions: {
-      allowedOrigins: ["localhost:3000", "potential-winner-5g4x6jq7wv7hvqwr-3000.app.github.dev"],
+      allowedOrigins: [
+        "localhost:3000", 
+        "potential-winner-5g4x6jq7wv7hvqwr-3000.app.github.dev", 
+        "nextjs-dashboard-c39pciyct-solomiosisantes-projects.vercel.app"],
     },
   },
 };
