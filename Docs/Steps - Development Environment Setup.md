@@ -1,5 +1,5 @@
-# Steps - Setup.md
-- This document details how this nextjs-dashboard Application was setup.
+# Steps - Development Environment Setup.md
+- This document details how this nextjs-dashboard Application Development Environment was setup.
 
 ## 1. Setup required tools
 To install required tools, in PowerShell terminal, run:
