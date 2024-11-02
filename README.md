@@ -1,6 +1,6 @@
 ## Next.js Completed Introductory Course Source Code
 
-This is the source code for the Next.js Introductory Cource. It contains the completed 16 chapters code for the dashboard application.
+This is the source code for the Next.js Introductory Course. It contains the 16 chapters code completed by yours trully for the dashboard application.
 
 For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
 
