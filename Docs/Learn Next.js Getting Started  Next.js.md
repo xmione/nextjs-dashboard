@@ -2,10 +2,13 @@
 
 We recommend using [`pnpm`](https://pnpm.io/) as your package manager, as it's faster and more efficient than `npm` or `yarn`. If you don't have `pnpm` installed, you can install it globally by running:
 
+```powershell
+npm install -g pnpm
+```
 To create a Next.js app, open your terminal, [`cd`](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line#basic_built-in_terminal_commands) into the folder you'd like to keep your project, and run the following command:
 
-```
-<span><span>npx </span><span>create-next-app@latest</span><span> </span><span>nextjs-dashboard</span><span> </span><span>--example</span><span> </span><span>"https://github.com/vercel/next-learn/tree/main/dashboard/starter-example"</span><span> </span><span>--use-pnpm</span></span>
+```powershell
+npx create-next-app@latest nextjs-dashboard --example "https://github.com/vercel/next-learn/tree/main/dashboard/starter-example" --use-pnpm
 ```
 
 This command uses [`create-next-app`](https://nextjs.org/docs/app/api-reference/create-next-app), a Command Line Interface (CLI) tool that sets up a Next.js application for you. In the command above, you're also using the `--example` flag with the [starter example](https://github.com/vercel/next-learn/tree/main/dashboard/starter-example) for this course.
@@ -17,6 +20,10 @@ Unlike tutorials that have you write code from scratch, much of the code for thi
 Our goal is to help you focus on learning the main features of Next.js, without having to write _all_ the application code.
 
 After installation, open the project in your code editor and navigate to `nextjs-dashboard`.
+
+```powershell
+cd nextjs-dashboard
+```
 
 Let's spend some time exploring the project.
 
@@ -43,22 +50,23 @@ When you're building user interfaces, it helps to have some placeholder data. If
 
 For this project, we've provided some placeholder data in `app/lib/placeholder-data.ts`. Each JavaScript object in the file represents a table in your database. For example, for the invoices table:
 
-```
-<span><span>const</span><span> </span><span>invoices</span><span> </span><span>=</span><span> [</span></span>
-<span><span>  {</span></span>
-<span><span>    customer_id</span><span>:</span><span> customers[</span><span>0</span><span>].id</span><span>,</span></span>
-<span><span>    amount</span><span>:</span><span> </span><span>15795</span><span>,</span></span>
-<span><span>    status</span><span>:</span><span> </span><span>'pending'</span><span>,</span></span>
-<span><span>    date</span><span>:</span><span> </span><span>'2022-12-06'</span><span>,</span></span>
-<span><span>  }</span><span>,</span></span>
-<span><span>  {</span></span>
-<span><span>    customer_id</span><span>:</span><span> customers[</span><span>1</span><span>].id</span><span>,</span></span>
-<span><span>    amount</span><span>:</span><span> </span><span>20348</span><span>,</span></span>
-<span><span>    status</span><span>:</span><span> </span><span>'pending'</span><span>,</span></span>
-<span><span>    date</span><span>:</span><span> </span><span>'2022-11-14'</span><span>,</span></span>
-<span><span>  }</span><span>,</span></span>
-<span><span>  </span><span>// ...</span></span>
-<span><span>];</span></span>
+#### /app/lib/placeholder-data.ts
+```powershell
+const invoices = [
+  {
+    customer_id: customers[0].id,
+    amount: 15795,
+    status: 'pending',
+    date: '2022-12-06',
+  },
+  {
+    customer_id: customers[1].id,
+    amount: 20348,
+    status: 'pending',
+    date: '2022-11-14',
+  },
+  // ...
+];
 ```
 
 In the chapter on [setting up your database](https://nextjs.org/learn/dashboard-app/setting-up-your-database), you'll use this data to _seed_ your database (populate it with some initial data).
@@ -71,16 +79,17 @@ It's okay if you don't know TypeScript - we'll provide the TypeScript code snipp
 
 For now, take a look at the `/app/lib/definitions.ts` file. Here, we manually define the types that will be returned from the database. For example, the invoices table has the following types:
 
-```
-<span><span>export</span><span> </span><span>type</span><span> </span><span>Invoice</span><span> </span><span>=</span><span> {</span></span>
-<span><span>  id</span><span>:</span><span> </span><span>string</span><span>;</span></span>
-<span><span>  customer_id</span><span>:</span><span> </span><span>string</span><span>;</span></span>
-<span><span>  amount</span><span>:</span><span> </span><span>number</span><span>;</span></span>
-<span><span>  date</span><span>:</span><span> </span><span>string</span><span>;</span></span>
-<span><span>  </span><span>// In TypeScript, this is called a string union type.</span></span>
-<span><span>  </span><span>// It means that the "status" property can only be one of the two strings: 'pending' or 'paid'.</span></span>
-<span><span>  status</span><span>:</span><span> </span><span>'pending'</span><span> </span><span>|</span><span> </span><span>'paid'</span><span>;</span></span>
-<span><span>};</span></span>
+#### /app/lib/definitions.ts
+```powershell
+export type Invoice = {
+  id: string;
+  customer_id: string;
+  amount: number;
+  date: string;
+  // In TypeScript, this is called a string union type.
+  // It means that the "status" property can only be one of the two strings: 'pending' or 'paid'.
+  status: 'pending' | 'paid';
+};
 ```
 
 By using TypeScript, you can ensure you don't accidentally pass the wrong data format to your components or database, like passing a `string` instead of a `number` to invoice `amount`.
@@ -94,10 +103,17 @@ By using TypeScript, you can ensure you don't accidentally pass the wrong data f
 
 Run `pnpm i` to install the project's packages.
 
+```powershell
+pnpm i
+```
+
 Followed by `pnpm dev` to start the development server.
 
 `pnpm dev` starts your Next.js development server on port `3000`. Let's check to see if it's working.
 
+```powershell
+pnpm dev
+```
 Open [http://localhost:3000](http://localhost:3000/) on your browser. Your home page should look like this, which is intentionally unstyled:
 
 ![Unstyled page with the title 'Acme', a description, and login link.](https://nextjs.org/_next/image?url=%2Flearn%2Fdark%2Facme-unstyled.png&w=3840&q=75&dpl=dpl_5DU7MtoYzzYKJbui3G5kbf54JXGA)
