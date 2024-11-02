@@ -6,7 +6,6 @@
   },
   "private": true,
   "scripts": {
-    "preinstall": "npx pnpm@9.12.3 install",
     "build": "next build",
     "dev": "next dev --turbo",
     "start": "next start",
