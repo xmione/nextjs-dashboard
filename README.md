@@ -11,4 +11,7 @@ For more information, see the [course curriculum](https://nextjs.org/learn) on t
 
 ## Course Links
 [Chapter 1 - Getting Started](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Learn%20Next.js%20Getting%20Started%20%20Next.js.md)
+
 [Chapter 2 - CSS Styling](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Learn%20Next.js%20CSS%20Styling%20%20Next.js.md)
+
+[Chapter 3 - Optimizing Fonts and Images](https://github.com/xmione/nextjs-dashboard/blob/master/Docs/Learn%20Next.js%20Optimizing%20Fonts%20and%20Images%20%20Next.js.md)
