@@ -9,21 +9,17 @@
     "ghcr.io/devcontainers/features/github-cli:1": {
       "version": "2"
     },
-    "ghcr.io/devcontainers/features/powershell:1": {
-      "version": "latest"
-    },
     "ghcr.io/azure/azure-dev/azd:0": {
       "version": "latest"
     },
     "ghcr.io/devcontainers/features/common-utils:2": {},
     "ghcr.io/devcontainers/features/dotnet:2": {
-      "version": "1.0.0",
+      "version": "9.0",
       "dotnetRuntimeVersions": "9.0",
       "aspNetCoreRuntimeVersions": "9.0"
     }
   },
-  // "postCreateCommand": "bash -c 'cd /workspaces/AccSol/ && chmod +x initializebashfiles.sh && ./initializebashfiles.sh'",
-  // "postStartCommand": "bash -c 'cd /workspaces/AccSol/Database/ && ./wait_for_mssql.sh && ./attachmdf.sh'",
+  "postCreateCommand": "bash -c 'cd /workspaces/nextjs-dashboard/ && chmod +x initializebashfiles.sh && ./initializebashfiles.sh'",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -35,7 +31,7 @@
     }
   },
   "forwardPorts": [
-    1433
+    3000
   ],
   "hostRequirements": {
     "memory": "8gb",
