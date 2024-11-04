@@ -44,5 +44,7 @@ LOG_FILE="/workspaces/nextjs-dashboard/setup.log"
     npm -v
  
     echo "Node.js installation completed successfully."
+
+    pnpm i
     echo "setup.sh completed successfully."
 } 2>&1 | tee -a "$LOG_FILE"
