@@ -61,5 +61,9 @@ LOG_FILE="/workspaces/nextjs-dashboard/setup.log"
     node -v
     npm -v
     vercel -v
+
+    createenv
+
+
     echo "setup.sh completed successfully."
 } 2>&1 | tee -a "$LOG_FILE"

@@ -6,6 +6,8 @@
 # Created To: Automatically create the environment variables for the application.
 #=================================================================================
 
+vercel login
+
 # Set environment variables
 export POSTGRES_URL="postgres://default:lyL7evi0RxYa@ep-sweet-lab-a4913tvc-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require"
 export POSTGRES_PRISMA_URL="postgres://default:lyL7evi0RxYa@ep-sweet-lab-a4913tvc-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require&pgbouncer=true&connect_timeout=15"
