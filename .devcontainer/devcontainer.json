@@ -1,7 +1,6 @@
 {
   "name": "Complete Setup",
   "image": "mcr.microsoft.com/devcontainers/universal:focal",
-  "postCreateCommand": "pnpm install",
   "customizations": {
     "vscode": {
       "settings": {
@@ -17,14 +16,9 @@
   },
   "forwardPorts": [3000],
   "features": {
-    "git": "latest",
-    "node": "22.x",
-    "pnpm": "latest",
-    "yarn": "latest",
-    "git-lfs": "latest",
-    "docker": "latest",
-    "azure-cli": "latest",
-    "curl": "latest",
-    "wget": "latest"
+    "git": "2.47.0",
+    "node": "22.9.0",
+    "git-lfs": "3.5.1",
+    "azure-cli": "2.65.0-1~focal"
   }
 }
