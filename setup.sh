@@ -49,7 +49,14 @@ LOG_FILE="/workspaces/nextjs-dashboard/setup.log"
     pnpm i
 
     echo "Installing vercel cli..."
-    yarn global add vercel@latest    
+    yarn global add vercel@latest 
+
+    # Add Vercel to the PATH
+    export PATH="$PATH:/home/codespace/.yarn/bin/"
+    echo 'export PATH="$PATH:/home/codespace/.yarn/bin/"' >> ~/.bashrc
+
+    # Load the new environment variables
+    source ~/.bashrc 
 
     node -v
     npm -v
