@@ -1,53 +1,30 @@
 {
-  "name": "nextjs-dashboard",
-  "image": "mcr.microsoft.com/dotnet/sdk:9.0",
-  "containerEnv": {
-    "ASPNETCORE_ENVIRONMENT": "Codespace"
-  },
-  "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-    "ghcr.io/devcontainers/features/github-cli:1": {
-      "version": "2"
-    },
-    "ghcr.io/azure/azure-dev/azd:0": {
-      "version": "latest"
-    },
-    "ghcr.io/devcontainers/features/common-utils:2": {},
-    "ghcr.io/devcontainers/features/dotnet:2": {
-      "version": "9.0",
-      "dotnetRuntimeVersions": "9.0",
-      "aspNetCoreRuntimeVersions": "9.0"
-    }
-  },
-  "postCreateCommand": "bash -c 'cd /workspaces/nextjs-dashboard/ && chmod +x initializebashfiles.sh && ./initializebashfiles.sh'",
+  "name": "Complete Setup",
+  "image": "mcr.microsoft.com/devcontainers/universal:focal",
+  "postCreateCommand": "pnpm install",
   "customizations": {
     "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+      },
       "extensions": [
-        "ms-vscode.vscode-node-azure-pack",
-        "ms-dotnettools.vscode-dotnet-runtime",
-        "ms-dotnettools.csdevkit",
-        "ms-dotnettools.csharp"
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-vscode-remote.remote-containers",
+        "ms-azuretools.vscode-docker"
       ]
     }
   },
-  "forwardPorts": [
-    3000
-  ],
-  "hostRequirements": {
-    "memory": "8gb",
-    "cpus": 4
-  },
-  "remoteEnv": {
-    "DOTNET_MULTILEVEL_LOOKUP": "0",
-    "TARGET": "net9.0"
-  },
-  "portsAttributes": {
-    "3000": {
-      "label": "nextjs-dashboard",
-      "onAutoForward": "notify",
-      "protocol": "https",
-      "requireLocalPort": true,
-      "public": true
-    }
+  "forwardPorts": [3000],
+  "features": {
+    "git": "latest",
+    "node": "22.x",
+    "pnpm": "latest",
+    "yarn": "latest",
+    "git-lfs": "latest",
+    "docker": "latest",
+    "azure-cli": "latest",
+    "curl": "latest",
+    "wget": "latest"
   }
 }

@@ -1,0 +1,27 @@
+{
+    "name": "Complete Setup",
+    "image": "mcr.microsoft.com/devcontainers/universal:focal",
+    "postCreateCommand": "pnpm install",
+    "settings": {
+      "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "ms-vscode-remote.remote-containers",
+      "ms-azuretools.vscode-docker"
+    ],
+    "forwardPorts": [3000],
+    "features": {
+      "git": "latest",
+      "node": "20.x",
+      "pnpm": "latest",
+      "yarn": "latest",
+      "git-lfs": "latest",
+      "docker": "latest",
+      "azure-cli": "latest",
+      "curl": "latest",
+      "wget": "latest"
+    }
+}
+  
