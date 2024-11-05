@@ -17,7 +17,7 @@
   "forwardPorts": [3000],
   "features": {
     "git": "2.47.0",
-    "node": "22.9.0",
+    "node": "20.x",
     "git-lfs": "3.5.1",
     "azure-cli": "2.65.0-1~focal"
   }
