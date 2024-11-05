@@ -44,8 +44,15 @@ LOG_FILE="/workspaces/nextjs-dashboard/createenv.log"
     POSTGRES_HOST="$7"
     POSTGRES_PASSWORD="$8"
     POSTGRES_DATABASE="$9"
-    AUTH_SECRET="${10}"
-    AUTH_URL="${11}"
+
+    # Generate a new auth secret (you can replace this with a static one if you prefer)
+    AUTH_SECRET=$(openssl rand -base64 32)
+    export AUTH_SECRET
+    if [ "$ASPNET_DEVELOPMENT" = "Codespace" ]; then
+        export AUTH_URL="CODESPACE_NAME/api/auth"
+    else
+        export AUTH_URL="http://localhost:3000/api/auth"
+    fi
 
     export VERCEL_TOKEN POSTGRES_URL POSTGRES_PRISMA_URL POSTGRES_URL_NO_SSL POSTGRES_URL_NON_POOLING POSTGRES_USER POSTGRES_HOST POSTGRES_PASSWORD POSTGRES_DATABASE AUTH_SECRET AUTH_URL
 
