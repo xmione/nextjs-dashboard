@@ -25,7 +25,7 @@ LOG_FILE="/workspaces/nextjs-dashboard/setup.log"
     pnpm setup
 
     echo "Starting Node.js installation"
-
+: '
     # Install Node.js
     # Download Node.js version 22.0.0
     curl -fsSL https://nodejs.org/dist/v22.9.0/node-v22.9.0-linux-x64.tar.xz -o node.tar.xz
@@ -44,7 +44,15 @@ LOG_FILE="/workspaces/nextjs-dashboard/setup.log"
     npm -v
  
     echo "Node.js installation completed successfully."
-
+'
+    echo "Installing node modules..."
     pnpm i
+
+    echo "Installing vercel cli..."
+    yarn global add vercel@latest    
+
+    node -v
+    npm -v
+    vercel -v
     echo "setup.sh completed successfully."
 } 2>&1 | tee -a "$LOG_FILE"

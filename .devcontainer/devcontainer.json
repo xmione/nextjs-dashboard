@@ -1,5 +1,5 @@
 {
-  "name": "Complete Setup",
+  "name": "nextjs-dashboard",
   "image": "mcr.microsoft.com/devcontainers/universal:focal",
   "customizations": {
     "vscode": {
@@ -17,8 +17,9 @@
   "forwardPorts": [3000],
   "features": {
     "git": "2.47.0",
-    "node": "20.x",
+    "node": "22.9.0",
     "git-lfs": "3.5.1",
     "azure-cli": "2.65.0-1~focal"
-  }
+  },
+  "postCreateCommand": "bash -c 'cd /workspaces/nextjs-dashboard/ && chmod +x initializebashfiles.sh && ./initializebashfiles.sh'"
 }
