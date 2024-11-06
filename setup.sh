@@ -65,5 +65,19 @@ LOG_FILE="/workspaces/nextjs-dashboard/setup.log"
     vercel -v    
       
     echo "setup.sh completed successfully."
-    echo "Manually run ./createenv.sh"
+    echo "Manually run these commannds to setup vercel environment variables:"
+    echo "vercel login"
+    echo "After logging in, Copy the token and run the command below replacing the parameters including the generated token string:"
+    echo ' bash createenv.sh \
+                    your-vercel-token \
+                    postgres-url \
+                    postgres-prisma-url \
+                    postgres-url-no-ssl \
+                    postgres-url-non-pooling \
+                    postgres-user \
+                    postgres-host \
+                    postgres-password \
+                    postgres-database'
+
+
 } 2>&1 | tee -a "$LOG_FILE"
