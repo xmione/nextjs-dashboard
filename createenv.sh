@@ -66,6 +66,18 @@ LOG_FILE="/workspaces/nextjs-dashboard/createenv.log"
     echo "export AUTH_SECRET=$AUTH_SECRET" >> ~/.bashrc
     echo "export AUTH_URL=$AUTH_URL" >> ~/.bashrc
 
+    echo "VERCEL_TOKEN=$VERCEL_TOKEN" > .env.local
+    echo "POSTGRES_URL=$POSTGRES_URL" >> .env.local
+    echo "POSTGRES_PRISMA_URL=$POSTGRES_PRISMA_URL" >> .env.local
+    echo "POSTGRES_URL_NO_SSL=$POSTGRES_URL_NO_SSL" >> .env.local
+    echo "POSTGRES_URL_NON_POOLING=$POSTGRES_URL_NON_POOLING" >> .env.local
+    echo "POSTGRES_USER=$POSTGRES_USER" >> .env.local
+    echo "POSTGRES_HOST=$POSTGRES_HOST" >> .env.local
+    echo "POSTGRES_PASSWORD=$POSTGRES_PASSWORD" >> .env.local
+    echo "POSTGRES_DATABASE=$POSTGRES_DATABASE" >> .env.local
+    echo "AUTH_SECRET=$AUTH_SECRET" >> .env.local
+    echo "AUTH_URL=$AUTH_URL" >> .env.local
+
     # Print out the variables to verify they are set
     echo "VERCEL_TOKEN=$VERCEL_TOKEN"
     echo "POSTGRES_URL=$POSTGRES_URL"
