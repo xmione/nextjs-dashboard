@@ -5,7 +5,7 @@
 # Created On: November 5, 2024
 # Created To: Automatically create the environment variables for the application.
 #
-# Hot to run:
+# How to run:
 : '             bash createenv.sh \
                     your-vercel-token \
                     postgres-url \

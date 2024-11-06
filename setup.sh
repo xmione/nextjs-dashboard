@@ -1,4 +1,25 @@
 #!/bin/bash
+#=================================================================================
+# File Name : setup.sh
+# Created By: Solomio S. Sisante
+# Created On: November 3, 2024
+# Created To: Automate the Development Environment.
+#
+# How to run:
+: '             bash createenv.sh \
+                    your-vercel-token \
+                    postgres-url \
+                    postgres-prisma-url \
+                    postgres-url-no-ssl \
+                    postgres-url-non-pooling \
+                    postgres-user \
+                    postgres-host \
+                    postgres-password \
+                    postgres-database
+
+'
+#
+#=================================================================================
 LOG_FILE="/workspaces/nextjs-dashboard/setup.log"
 
 {
@@ -48,12 +69,7 @@ LOG_FILE="/workspaces/nextjs-dashboard/setup.log"
     echo "Installing node modules..."
     pnpm i
 
-    echo "Installing vercel cli version 37.14.0..."
-    yarn global add vercel@37.14.0 
-
-    # Add Vercel to the PATH
-    export PATH="$PATH:/home/codespace/.yarn/bin/"
-    echo 'export PATH="$PATH:/home/codespace/.yarn/bin/"' >> ~/.bashrc
+    bash ivercel.sh
 
     # Load the new environment variables
     source ~/.bashrc 
@@ -66,6 +82,8 @@ LOG_FILE="/workspaces/nextjs-dashboard/setup.log"
       
     echo "setup.sh completed successfully."
     echo "Manually run these commannds to setup vercel environment variables:"
+    echo 'if vercel cli is not installed successfully run: 
+          bash ivercel.sh'
     echo "vercel login"
     echo "After logging in, Copy the token and run the command below replacing the parameters including the generated token string:"
     echo ' bash createenv.sh \
