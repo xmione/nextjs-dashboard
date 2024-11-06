@@ -1,6 +1,9 @@
 {
   "name": "nextjs-dashboard",
   "image": "mcr.microsoft.com/devcontainers/universal:focal",
+  "containerEnv": {
+    "ASPNETCORE_ENVIRONMENT": "Codespace"
+  },
   "customizations": {
     "vscode": {
       "settings": {
