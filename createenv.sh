@@ -15,9 +15,7 @@
                     postgres-user \
                     postgres-host \
                     postgres-password \
-                    postgres-database \
-                    auth-secret \
-                    auth-url
+                    postgres-database
 
 '
 #
@@ -29,8 +27,8 @@ LOG_FILE="/workspaces/nextjs-dashboard/createenv.log"
     echo "Starting createenv.sh"
 
     # Check if all parameters are provided
-    if [ "$#" -ne 11 ]; then
-      echo "Usage: $0 <VERCEL_TOKEN> <POSTGRES_URL> <POSTGRES_PRISMA_URL> <POSTGRES_URL_NO_SSL> <POSTGRES_URL_NON_POOLING> <POSTGRES_USER> <POSTGRES_HOST> <POSTGRES_PASSWORD> <POSTGRES_DATABASE> <AUTH_SECRET> <AUTH_URL>"
+    if [ "$#" -ne 9 ]; then
+      echo "Usage: $0 <VERCEL_TOKEN> <POSTGRES_URL> <POSTGRES_PRISMA_URL> <POSTGRES_URL_NO_SSL> <POSTGRES_URL_NON_POOLING> <POSTGRES_USER> <POSTGRES_HOST> <POSTGRES_PASSWORD> <POSTGRES_DATABASE>"
       exit 1
     fi
 
@@ -68,10 +66,8 @@ LOG_FILE="/workspaces/nextjs-dashboard/createenv.log"
     echo "export AUTH_SECRET=$AUTH_SECRET" >> ~/.bashrc
     echo "export AUTH_URL=$AUTH_URL" >> ~/.bashrc
 
-    # Use the Vercel token to log in non-interactively
-    vercel login --token "$VERCEL_TOKEN"
-
     # Print out the variables to verify they are set
+    echo "VERCEL_TOKEN=$VERCEL_TOKEN"
     echo "POSTGRES_URL=$POSTGRES_URL"
     echo "POSTGRES_PRISMA_URL=$POSTGRES_PRISMA_URL"
     echo "POSTGRES_URL_NO_SSL=$POSTGRES_URL_NO_SSL"
