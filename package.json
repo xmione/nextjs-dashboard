@@ -8,8 +8,8 @@
   "scripts": {
     "preinstall": "npm install -g pnpm@9.12.3",
     "build": "next build",
-    "dev": "next dev --turbo",
-    "start": "next start",
+    "dev": "NODE_OPTIONS='--inspect' next dev --turbo",
+    "start": "NODE_OPTIONS='--inspect' next start",
     "lint": "next lint"
   },
   "dependencies": {
