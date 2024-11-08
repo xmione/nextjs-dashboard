@@ -43,7 +43,7 @@ Log-Message "Starting installation of ReactJS-Tools Application Development Envi
 function Install-Application {
     param (
         [string]$appName,
-        [string]$installCommand,
+        [scriptblock]$installCommand,
         [scriptblock]$checkCommand,
         [string]$envPath,
         [string]$manualInstallUrl = $null,
@@ -99,6 +99,8 @@ manualInstallPath: $manualInstallPath
     }
 
     $currentPath = [System.Environment]::GetEnvironmentVariable('Path', [System.EnvironmentVariableTarget]::User)
+
+    Log-Message "currentPath = $currentPath"
     if (-not ($currentPath -like "*$envPath*")) {
         $newPath = $currentPath + ";$envPath"
         [System.Environment]::SetEnvironmentVariable('Path', $newPath, [System.EnvironmentVariableTarget]::User)
@@ -159,35 +161,38 @@ function RestartPC {
 # Execute installation functions
 
 Install-Application -appName "Chocolatey" `
-                    -installCommand "choco install chocolatey -y" `
+                    -installCommand { choco install chocolatey -y } `
                     -checkCommand { Get-Command choco -ErrorAction SilentlyContinue } `
                     -envPath "C:\ProgramData\chocolatey\bin"
 
 Install-Application -appName "OpenSSL" `
-                    -installCommand "choco install openssl -y" `
+                    -installCommand { choco install openssl -y } `
                     -checkCommand { Test-Path "C:\Program Files\OpenSSL-Win64\bin\openssl.exe" } `
                     -envPath "C:\Program Files\OpenSSL-Win64\bin" `
                     -manualInstallUrl "https://slproweb.com/download/Win64OpenSSL-3_3_2.exe" `
                     -manualInstallPath "C:\Temp\Win64OpenSSL-3_3_2.exe"
 
 Install-Application -appName "MinGW" `
-                    -installCommand "choco install mingw -y" `
+                    -installCommand { choco install mingw -y } `
                     -checkCommand { Test-Path "C:\ProgramData\mingw64\mingw64\bin\gcc.exe" } `
                     -envPath "C:\ProgramData\mingw64\mingw64\bin"
 
 Install-Application -appName "nodejs" `
-                    -installCommand "choco install nodejs --version=22.9.0 -y" `
+                    -installCommand { choco install nodejs --version=22.9.0 -y } `
                     -checkCommand { Get-Command node -ErrorAction SilentlyContinue } `
                     -envPath "C:\Program Files\nodejs"
 
-Install-Application -appName "git" `
-                    -installCommand "choco install git -y" `
-                    -checkCommand { Get-Command git -ErrorAction SilentlyContinue } `
-                    -envPath "C:\Program Files\Git\cmd"
+# Install-Application -appName "Docker Desktop" `
+#                     -installCommand { choco install docker-desktop --version=4.34.2 -y } `
+#                     -checkCommand { Get-Command docker -ErrorAction SilentlyContinue } `
+#                     -envPath "C:\Program Files\Docker\Docker"
 
+                    choco install docker-desktop --version=4.34.2 -y
+                
+                           
 <#
 Install-Application -appName "nodejs" `
-                    -installCommand "choco install nodejs -y" `
+                    -installCommand { choco install nodejs -y } `
                     -checkCommand { Get-Command node -ErrorAction SilentlyContinue } `
                     -envPath "C:\Program Files\nodejs"
 
