@@ -48,7 +48,20 @@ function Install-Application {
         [string]$envPath,
         [string]$manualInstallUrl = $null,
         [string]$manualInstallPath = $null
-    )
+    ) 
+    $message = @" 
+
+====================================================================================================================    
+appName: $appName 
+installCommand: $installCommand 
+checkCommand: $checkCommand 
+envPath: $envPath 
+manualInstallUrl: $manualInstallUrl 
+manualInstallPath: $manualInstallPath 
+====================================================================================================================
+"@ 
+
+    Log-Message $message
 
     if (-not (& $checkCommand -ErrorAction SilentlyContinue)) {
         Log-Message "Installing $appName..."
@@ -85,10 +98,10 @@ function Install-Application {
         Log-Message "$appName installation failed verification."
     }
 
-    $currentPath = [System.Environment]::GetEnvironmentVariable('Path', [System.EnvironmentVariableTarget]::Machine)
+    $currentPath = [System.Environment]::GetEnvironmentVariable('Path', [System.EnvironmentVariableTarget]::User)
     if (-not ($currentPath -like "*$envPath*")) {
         $newPath = $currentPath + ";$envPath"
-        [System.Environment]::SetEnvironmentVariable('Path', $newPath, [System.EnvironmentVariableTarget]::Machine)
+        [System.Environment]::SetEnvironmentVariable('Path', $newPath, [System.EnvironmentVariableTarget]::User)
         $env:Path = $newPath
         Log-Message "Added $appName to the system PATH."
     } else {
@@ -167,6 +180,11 @@ Install-Application -appName "nodejs" `
                     -checkCommand { Get-Command node -ErrorAction SilentlyContinue } `
                     -envPath "C:\Program Files\nodejs"
 
+Install-Application -appName "git" `
+                    -installCommand "choco install git -y" `
+                    -checkCommand { Get-Command git -ErrorAction SilentlyContinue } `
+                    -envPath "C:\Program Files\Git\cmd"
+
 <#
 Install-Application -appName "nodejs" `
                     -installCommand "choco install nodejs -y" `
@@ -184,7 +202,10 @@ Install-Application -appName "nodejs" `
 
 # Log the completion of the installation process
 Log-Message "Installation process completed."
-RestartPC
 
 # Stop logging
 Stop-Transcript
+
+Read-Host -Prompt "Press Enter to Restart Computer"
+
+RestartPC

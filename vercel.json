@@ -1,0 +1,13 @@
+{
+    "builds": [
+      {
+        "src": "next.config.ts",
+        "use": "@vercel/next"
+      }
+    ],
+    "env": {
+      "NODE_ENV": "production",
+      "DEBUG": "next:*"
+    }
+  }
+  
