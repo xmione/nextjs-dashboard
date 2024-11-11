@@ -5,7 +5,7 @@
     Created      : October 27, 2024    
 
     To run:
-
+    
     Start-Process "cmd.exe" -WorkingDirectory $PWD.Path -ArgumentList "/k uninstall.bat" -Verb runAs
     
     or
