@@ -1,22 +1,12 @@
 #!/bin/bash
 #=================================================================================
-# File Name : setup.sh
+# File Name : setup-linux.sh
 # Created By: Solomio S. Sisante
 # Created On: November 3, 2024
-# Created To: Automate the Development Environment.
+# Created To: Automate the Development Environment in Linux.
 #
 # How to run:
-: '             bash createenv.sh \
-                    your-vercel-token \
-                    postgres-url \
-                    postgres-prisma-url \
-                    postgres-url-no-ssl \
-                    postgres-url-non-pooling \
-                    postgres-user \
-                    postgres-host \
-                    postgres-password \
-                    postgres-database
-
+: '             bash setup-linux.sh 
 '
 #
 #=================================================================================
@@ -69,7 +59,7 @@ LOG_FILE="/workspaces/nextjs-dashboard/setup.log"
     echo "Installing node modules..."
     pnpm i
 
-    bash ivercel.sh
+    bash ivercel-linux.sh
 
     # Load the new environment variables
     source ~/.bashrc 
@@ -83,7 +73,7 @@ LOG_FILE="/workspaces/nextjs-dashboard/setup.log"
     echo "setup.sh completed successfully."
     echo "Manually run these commannds to setup vercel environment variables:"
     echo 'if vercel cli is not installed successfully run: 
-          bash ivercel.sh'
+          bash ivercel-linux.sh'
     echo "vercel login"
     echo "After logging in, Copy the token and run the command below replacing the parameters including the generated token string:"
     echo ' bash createenv.sh \

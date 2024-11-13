@@ -3,7 +3,7 @@
 # File Name : createenv.sh
 # Created By: Solomio S. Sisante
 # Created On: November 5, 2024
-# Created To: Automatically create the environment variables for the application.
+# Created To: Automatically create the Linux environment variables for the application.
 #
 # How to run:
 : '             bash createenv.sh \
@@ -52,7 +52,8 @@ LOG_FILE="/workspaces/nextjs-dashboard/createenv.log"
         export AUTH_URL="http://localhost:3000/api/auth"
     fi
 
-    export VERCEL_TOKEN POSTGRES_URL POSTGRES_PRISMA_URL POSTGRES_URL_NO_SSL POSTGRES_URL_NON_POOLING POSTGRES_USER POSTGRES_HOST POSTGRES_PASSWORD POSTGRES_DATABASE AUTH_SECRET AUTH_URL
+    export NEXTAUTH_URL=AUTH_URL
+    export VERCEL_TOKEN POSTGRES_URL POSTGRES_PRISMA_URL POSTGRES_URL_NO_SSL POSTGRES_URL_NON_POOLING POSTGRES_USER POSTGRES_HOST POSTGRES_PASSWORD POSTGRES_DATABASE AUTH_SECRET AUTH_URL NEXTAUTH_URL
 
     echo "export VERCEL_TOKEN=$VERCEL_TOKEN" >> ~/.bashrc
     echo "export POSTGRES_URL=$POSTGRES_URL" >> ~/.bashrc
@@ -65,6 +66,7 @@ LOG_FILE="/workspaces/nextjs-dashboard/createenv.log"
     echo "export POSTGRES_DATABASE=$POSTGRES_DATABASE" >> ~/.bashrc
     echo "export AUTH_SECRET=$AUTH_SECRET" >> ~/.bashrc
     echo "export AUTH_URL=$AUTH_URL" >> ~/.bashrc
+    echo "export NEXTAUTH_URL=$NEXTAUTH_URL" >> ~/.bashrc
 
     echo "VERCEL_TOKEN=$VERCEL_TOKEN" > .env.local
     echo "POSTGRES_URL=$POSTGRES_URL" >> .env.local
@@ -77,6 +79,7 @@ LOG_FILE="/workspaces/nextjs-dashboard/createenv.log"
     echo "POSTGRES_DATABASE=$POSTGRES_DATABASE" >> .env.local
     echo "AUTH_SECRET=$AUTH_SECRET" >> .env.local
     echo "AUTH_URL=$AUTH_URL" >> .env.local
+    echo "NEXTAUTH_URL=$NEXTAUTH_URL" >> .env.local
 
     # Print out the variables to verify they are set
     echo "VERCEL_TOKEN=$VERCEL_TOKEN"
@@ -90,6 +93,7 @@ LOG_FILE="/workspaces/nextjs-dashboard/createenv.log"
     echo "POSTGRES_DATABASE=$POSTGRES_DATABASE"
     echo "AUTH_SECRET=$AUTH_SECRET"
     echo "AUTH_URL=$AUTH_URL"
+    echo "NEXTAUTH_URL=$NEXTAUTH_URL"    
 
     echo "createenv.sh completed successfully."
 } 2>&1 | tee -a "$LOG_FILE"
