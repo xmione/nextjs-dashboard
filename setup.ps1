@@ -80,7 +80,7 @@ manualInstallPath: $manualInstallPath
         } catch {
             if ($manualInstallUrl -and $manualInstallPath) {
                 Log-Message "Failed to install $appName via Chocolatey, attempting manual installation."
-                Download-WithProgress -url $manualInstallUrl -outputFile $manualInstallPath
+                DownloadWithProgress -url $manualInstallUrl -outputFile $manualInstallPath
                 Start-Process -FilePath $manualInstallPath -ArgumentList '/silent' -Wait
                 Log-Message "$appName manual installation completed."
             } else {
@@ -112,7 +112,7 @@ manualInstallPath: $manualInstallPath
 }
 
 # Function to download a file with progress tracking
-function Download-WithProgress {
+function DownloadWithProgress {
     param (
         [string]$url,
         [string]$outputFile
