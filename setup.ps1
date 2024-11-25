@@ -232,7 +232,7 @@ Install-Application -appName "pnpm" `
 choco install docker-desktop --version=4.34.2 -y
 
 # Call the function to install .NET 9
-Install-DotNet -version "9.0.0"
+Install-DotNet -version "9.0.100"
  
 <#
 Install-Application -appName "nodejs" `
