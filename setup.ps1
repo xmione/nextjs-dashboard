@@ -6,11 +6,11 @@
 
     To run:
 
-    Start-Process "cmd.exe" -WorkingDirectory $PWD.Path -ArgumentList "/k setup.bat" -Verb runAs
+    Start-Process "cmd.exe" -ArgumentList "/k cd $($PWD.Path) && setup.bat" -Verb runAs
 
     or
 
-    Start-Process "powershell.exe" -WorkingDirectory $PWD.Path -ArgumentList "-ExecutionPolicy Bypass -File .\setup.ps1" -Verb RunAs
+    Start-Process "powershell.exe" -ArgumentList "-NoExit", "-ExecutionPolicy Bypass", "-Command", "Set-Location -Path $($PWD.Path); .\setup.ps1" -Verb RunAs
 
     or
 
@@ -182,12 +182,17 @@ Install-Application -appName "nodejs" `
                     -checkCommand { Get-Command node -ErrorAction SilentlyContinue } `
                     -envPath "C:\Program Files\nodejs"
 
+Install-Application -appName "pnpm" `
+                    -installCommand { choco install pnpm -y } `
+                    -checkCommand { Get-Command pnpm -ErrorAction SilentlyContinue } `
+                    -envPath "C:\Program Files\pnpm"  
+
 # Install-Application -appName "Docker Desktop" `
 #                     -installCommand { choco install docker-desktop --version=4.34.2 -y } `
 #                     -checkCommand { Get-Command docker -ErrorAction SilentlyContinue } `
 #                     -envPath "C:\Program Files\Docker\Docker"
 
-                    choco install docker-desktop --version=4.34.2 -y
+choco install docker-desktop --version=4.34.2 -y
                 
                            
 <#

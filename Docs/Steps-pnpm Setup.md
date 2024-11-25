@@ -10,7 +10,7 @@ You can check Machine-Level and User-Level Path environment variables by running
 
 ## Getting Machine-Level Path Environment Variable
 ```powershell
-$machinePath = [System.Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::Machine)
+$machinePath = [System.Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::User)
 $machinePath
 ```
 
@@ -20,7 +20,6 @@ $userPath = [System.Environment]::GetEnvironmentVariable("Path", [System.Environ
 $userPath
 ```
 ## Setting Machine-Level
-
 ```powershell
 $machinePath = "C:\Windows\System32;C:\Windows\System32\WindowsPowerShell\v1.0"
 
@@ -28,7 +27,6 @@ $machinePath = "C:\Windows\System32;C:\Windows\System32\WindowsPowerShell\v1.0"
 
 ```
 ## Setting User-Level
-
 ```powershell
 $userPath = "C:\Users\User\AppData\Local\pnpm;C:\ProgramData\chocolatey\bin;C:\Program Files\OpenSSL-Win64\bin;C:\ProgramData\mingw64\mingw64\bin;C:\Users\User\AppData\Local\Microsoft\WindowsApps;C:\Users\User\.dotnet\tools;C:\Users\User\AppData\Local\GitHubDesktop\bin;C:\Users\User\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\User\AppData\Roaming\npm;C:\Program Files\nodejs;C:\Program Files\Git\cmd"
 
@@ -39,13 +37,11 @@ $userPath = "C:\Users\User\AppData\Local\pnpm;C:\ProgramData\chocolatey\bin;C:\P
 You can set the current session/process-level path variable in two (2) ways:
 
 ### 1. Restarting the Computer
-
 ```powershell
 Restart-Computer -Force
 ```
 
 ### 2. Getting the Machine-Level and User-Level path variables, combining them and then saving them to the $env:Path variable
-
 ```powershell
 $machinePath = [System.Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::Machine)
 $userPath = [System.Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::User)
