@@ -158,6 +158,43 @@ function RestartPC {
     }
 }
 
+# Install .NET 9 using Microsoft's .NET Install Script
+function Install-DotNet {
+    param (
+        [string]$version = "9.0.0",
+        [string]$installDir = "$HOME\.dotnet"
+    )
+
+    $dotnetInstallScriptUrl = "https://dotnet.microsoft.com/download/dotnet/scripts/v1/dotnet-install.ps1"
+
+    # Download the .NET install script
+    Log-Message "Downloading .NET Install Script from $dotnetInstallScriptUrl..."
+    Invoke-WebRequest -Uri $dotnetInstallScriptUrl -OutFile "dotnet-install.ps1"
+
+    # Run the script to install .NET
+    Log-Message "Installing .NET version $version..."
+    .\dotnet-install.ps1 -Version $version -InstallDir $installDir
+
+    # Verify installation
+    $dotnetPath = Join-Path -Path $installDir -ChildPath "dotnet.exe"
+    if (Test-Path $dotnetPath) {
+        Log-Message ".NET $version installed successfully at $installDir."
+    } else {
+        Log-Message "Failed to install .NET $version."
+    }
+
+    # Add .NET to PATH
+    $currentPath = [System.Environment]::GetEnvironmentVariable('Path', [System.EnvironmentVariableTarget]::User)
+    if (-not ($currentPath -like "*$installDir*")) {
+        $newPath = $currentPath + ";$installDir"
+        [System.Environment]::SetEnvironmentVariable('Path', $newPath, [System.EnvironmentVariableTarget]::User)
+        $env:Path = $newPath
+        Log-Message "Added .NET to the system PATH."
+    } else {
+        Log-Message ".NET is already in the system PATH."
+    }
+}
+
 # Execute installation functions
 
 Install-Application -appName "Chocolatey" `
@@ -193,8 +230,10 @@ Install-Application -appName "pnpm" `
 #                     -envPath "C:\Program Files\Docker\Docker"
 
 choco install docker-desktop --version=4.34.2 -y
-                
-                           
+
+# Call the function to install .NET 9
+Install-DotNet -version "9.0.0"
+ 
 <#
 Install-Application -appName "nodejs" `
                     -installCommand { choco install nodejs -y } `
